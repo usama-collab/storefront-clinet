@@ -8,6 +8,9 @@ const AmazonContext = React.createContext();
 
 const amazonContextProvider: React.FC = (props: any) => {
     const [subContainer, setSubContainer] = useState(false);
-    return <AmazonContext.Provider>{props.children}</AmazonContext.Provider>;
+    return (
+    // <AmazonContext.Provider>{props.children}</AmazonContext.Provider>
+    <div></div>
+    );
 };
 export default amazonContextProvider;
