@@ -1,38 +1,279 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #E5E5E5;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+:root {
+  --primary-white: #FFFFFF;
+  --primary-black: #000000;
+  --primary-orange: #F19D38;
+  --secondary-grey: #DDDDDD;
+  --secondary-dark-grey: #C9CCCC;
+  --secondary-disabled-grey: #565959;
+  --secondary-yellow: #febd69;
+  --secondary-dark-yellow: #F2A742;
+  --secondary-orange: #C45500;
+  --secondary-hover-orange: #B65B22;
+  --secondary-red: #B12704;
+  --secondary-blue: #007185;
+  --secondary-dark: #141920;
+  --secondary-medium: #252F3D;
+  --borderColor: #c1c1c1;
+  --mainText: black;
+  --secondaryText: #4b5156;
+  --themeDotBorder: #24292e;
+  --previewBg: rgb(251, 249, 243, 0.8);
+  --previewShadow: #f0ead6;
+  --buttonColor: black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
+}
+
+.section1 {}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #141920;
+  color: white;
+  height: 70px;
+}
+
+.logo-text:hover {
+  border: 2px solid white;
+}
+
+.nav-location-btn {
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.location-icon {
+  height: 20px;
+  width: 17px;
+  margin-top: 10px;
+  float: left;
+}
+
+.nav-country-name {
+  font-weight: bolder;
+  display: flex;
+}
+
+.nav-search-dropdown-cart {}
+
+.nav-search-scope {
+  color: black;
+  width: 3rem;
+  height: 100%;
+}
+
+.nav-input {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  align-self: center;
+  border: 03px solid grey;
+  border-radius: 6px;
+  width: 50%;
+}
+
+input {
+  background: transparent;
+  border: 0px;
+  outline: 0px;
+  height: 39px;
+}
+
+.nav-search-btn {
+  background-color: var(--secondary-yellow);
+  color: black;
+  width: 45px;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-search-btn:hover {
+  background-color: var(--secondary-dark-yellow);
+  color: black;
+}
+
+.icon-search {
+  background-color: yellow;
+}
+
+.account-and-lists {
+  background: transparent;
+  color: white;
+  border: none;
+}
+
+.nav-button {
+  background: transparent;
+  color: white;
+  border: none;
+}
+
+.nav-button:hover {
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon {
+  width: 40px;
+  height: 30px;
+}
+
+.cart-text {
+  line-height: 44px;
+}
+
+.nav-below {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  background-color: var(--secondary-medium);
+  color: white;
+  height: 30px;
+  overflow: hidden;
+  width: auto;
+}
+
+.side-nav-btn {
+  height: 30px;
+  width: 40px;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 1em;
+  cursor: pointer;
+  margin-left: 40px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  margin: 5px 0 6px 0;
+  padding: 8px 9px;
+}
+
+.nav-link:hover {
+  border: 1px solid white;
+}
+
+.nav-links-right {
+  /* push one element of flex to the most right/left 
+  margin-left: auto;
+  or
+  position: absolute;
+  right: 0px;
+  or before the element we want to push
+  flex-grow: 1 
+  */
+  margin-left: auto;
+}
+
+.side-nav {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow: hidden;
+  height: 100%;
+  width: 85%;
+  max-width: 380px;
+  background-color: white;
+  z-index: 100;
+  position: fixed;
+  transform-origin: left center;
+  transform: translateX(-420px);
+  top: 0;
+  left: 0;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, .7);
+  /* opacity: .5; */
+}
+
+.closeBtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 390px;
   color: white;
+  font-size: 70px;
+  cursor: pointer;
+  transform: translateX(-5px);
+  /* if we want to display close button above overlay */
+  z-index: 75;
 }
 
-.App-link {
-  color: #61dafb;
+/* Animations */
+/* Expand the entire sidenav outwards*/
+@keyframes moveSideBar {
+  0% {
+    transform: translateX(-420px);
+    z-index: 100px;
+  }
+
+  100% {
+    transform: translateX(-0px);
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* both of our elements have the same animation */
+/* below is fade in animation, general fade into existence */
+@keyframes show {
+  0% {
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  100% {
+    opacity: 1;
   }
+}
+
+.sideNavHeader {
+  color: white;
+  font-weight: bold;
+  background-color: rgb(35, 47, 62);
+  padding: 10px 0px 10px 30px;
+  font-size: 23px;
+}
+
+.sideNavContent {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* add scroll bar to the vertical axis,to scroll in sidebar without effecting the scroll of whole page */
+  overflow-y: scroll;
 }
