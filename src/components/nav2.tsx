@@ -59,16 +59,16 @@ const NavBelow = () => {
                         );
                     }}
                 </Transition>
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/">
                     Today's Deals
                 </a>
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/">
                     Customer Service
                 </a>
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/">
                     Registry
                 </a>
-                <a className="nav-link nav-links-right" href="#">
+                <a className="nav-link nav-links-right" href="/">
                     Shop deals in Electronics
                 </a>
             </div>
